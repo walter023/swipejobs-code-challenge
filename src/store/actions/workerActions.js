@@ -9,10 +9,13 @@ export const setWorkerInfo = (payload) => {
 
 export const getWorkerInfo = () => {
   return (dispatch) => {
-    const workerInfo = await fetch(
+    fetch(
       "https://test.swipejobs.com/api/worker/7f90df6e-b832-44e2-b624-3143d428001f/profile"
-    ).then((response) => response.json());
-    console.log(workerInfo);
-    dispatch(setWorkerInfo(workerInfo));
+    )
+      .then((response) => response.json())
+      .then((workerInfo) => {
+        console.log("workerInfo", workerInfo);
+        dispatch(setWorkerInfo(workerInfo));
+      });
   };
 };
