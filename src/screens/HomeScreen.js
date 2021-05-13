@@ -1,5 +1,10 @@
-
+import React from "react";
+import { Text } from "react-native";
 
 export const HomeScreen = () => {
-  return <></>;
+  return (
+    <>
+      <Text>Swipe jobs!</Text>
+    </>
+  );
 };
