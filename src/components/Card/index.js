@@ -4,7 +4,7 @@ import { Alert, StyleSheet, View, ViewPropTypes } from "react-native";
 import { BorderRadius, Color, Margin } from "@styles";
 import { useSelector } from "react-redux";
 
-import { HeaderCard } from "../CardHeader";
+import { HeaderCard } from "../HeaderCard";
 
 export const JobCard = ({ style }) => {
   const { matches, loading, error } = useSelector((state) => state.jobs);
