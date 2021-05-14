@@ -4,15 +4,9 @@ import React, { useEffect } from "react";
 import { Text, StyleSheet } from "react-native";
 
 import { FontSize, Color } from "@styles";
-import { getWorkerInfo } from "@store";
 
 export const DisplayName = ({ style }) => {
-  const dispatch = useDispatch();
   const { profile } = useSelector((state) => state.worker);
-
-  useEffect(() => {
-    dispatch(getWorkerInfo());
-  }, []);
 
   return (
     <Text style={[styles.display, style]}>

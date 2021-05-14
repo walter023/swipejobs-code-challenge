@@ -4,3 +4,7 @@ export const Margin = {
   MEDIUM: 20,
   LARGE: 30,
 };
+export const BorderRadius = {
+  XSMALL: 3,
+  SMALL: 5,
+};
