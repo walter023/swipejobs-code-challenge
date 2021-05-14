@@ -5,7 +5,3 @@ export const EndPoints = {
   JOB_MATCHES: `https://test.swipejobs.com/api/worker/${workerId}/matches`,
 };
 
-export const Label = {
-  RATE: "Hourly Rate",
-  DISTANCE: "Distance",
-};

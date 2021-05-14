@@ -5,6 +5,7 @@ import { BorderRadius, Color, Margin } from "@styles";
 import { useSelector } from "react-redux";
 
 import { HeaderCard } from "../HeaderCard";
+import { HighlightLabel } from "../HighlightLabel";
 
 export const JobCard = ({ style }) => {
   const { matches, loading, error } = useSelector((state) => state.jobs);
@@ -15,6 +16,7 @@ export const JobCard = ({ style }) => {
       onTop && (
         <View style={[styles.container, style]} key={matchedJob.jobId}>
           <HeaderCard job={matchedJob} style={styles.header} />
+          <HighlightLabel job={matchedJob} style={styles.HighlightLabel} />
         </View>
       )
     );
@@ -36,4 +38,7 @@ const styles = StyleSheet.create({
   header: {
     marginTop: -Margin.MEDIUM,
   },
+  HighlightLabel:{
+    marginTop: Margin.SMALL,
+  }
 });
