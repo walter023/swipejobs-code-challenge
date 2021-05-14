@@ -4,3 +4,4 @@ export const EndPoints = {
   WORKER: `https://test.swipejobs.com/api/worker/${workerId}/profile`,
   JOB_MATCHES: `https://test.swipejobs.com/api/worker/${workerId}/matches`,
 };
+

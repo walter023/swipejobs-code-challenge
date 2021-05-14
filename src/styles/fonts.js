@@ -4,9 +4,10 @@ export const FontSize = {
   BODY: 16,
   TITLE: 18,
   LARGE: 20,
+  XLARGE: 24,
 };
 
 export const FontWeight = {
-  BOLD: "600",
+  BOLD: "bold",
   TITLE: "400",
 };
