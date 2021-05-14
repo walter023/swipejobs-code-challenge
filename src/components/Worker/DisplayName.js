@@ -18,7 +18,7 @@ export const DisplayName = ({ style }) => {
 const styles = StyleSheet.create({
   display: {
     color: Color.BLACK,
-    fontSize: FontSize.TITLE,
+    fontSize: FontSize.BODY,
   },
 });
 
