@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 /**
  * Converts a float to one decimal place and rounds up or down
  * @param {number} number
@@ -19,3 +20,14 @@ export const convertCentsToDollars = (cents) => {
     currency: "USD",
   });
 };
+
+/**
+ * Returns the Do MMMM YYYY
+ * @param {string} date
+ * @returns {string}
+ */
+export function monthDayHour(startShift, endShift) {
+  const startDate = DateTime.fromISO(startShift).toFormat("LLL EEE ',' HH:mm");
+  const endDate = DateTime.fromISO(endShift).toFormat("HH:mm");
+  return `${startDate} - ${endDate} PDT`;
+}

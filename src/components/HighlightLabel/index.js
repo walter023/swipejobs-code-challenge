@@ -11,6 +11,7 @@ export const HighlightLabel = ({ style, job }) => {
 
   const distance = roundToOneDecimal(milesToTravel);
   const wagePerHourInDolllars = convertCentsToDollars(wagePerHourInCents);
+  
   return (
     <View style={[styles.container, style]}>
       <View style={styles.leftContainer}>
