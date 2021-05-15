@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import {  StyleSheet, Text, View, ViewPropTypes } from "react-native";
 
 import { Label } from "@constants";
 import { roundToOneDecimal, convertCentsToDollars } from "@helpers";
@@ -11,7 +11,7 @@ export const HighlightLabel = ({ style, job }) => {
 
   const distance = roundToOneDecimal(milesToTravel);
   const wagePerHourInDolllars = convertCentsToDollars(wagePerHourInCents);
-  
+
   return (
     <View style={[styles.container, style]}>
       <View style={styles.leftContainer}>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 HighlightLabel.propTypes = {
   job: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 HighlightLabel.defaultProps = {

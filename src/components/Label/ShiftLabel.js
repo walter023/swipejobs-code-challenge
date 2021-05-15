@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, ViewPropTypes } from "react-native";
 
 import { Label } from "@constants";
 import { monthDayHour } from "@helpers";
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 
 ShiftLabel.propTypes = {
   job: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 ShiftLabel.defaultProps = {

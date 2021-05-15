@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Ionicons, Octicons  } from "@expo/vector-icons";
+import { StyleSheet, Text, View, ViewPropTypes } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { Color, FontSize, FontWeight, Padding, Margin } from "@styles";
 
@@ -64,7 +64,11 @@ const styles = StyleSheet.create({
 
 SimpleLabel.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
+  iconLeft: PropTypes.string,
+  iconRight: PropTypes.string,
+  iconVerticalPosition: PropTypes.string,
+  style: ViewPropTypes.style,
+  title: PropTypes.string.isRequired,
 };
 
 SimpleLabel.defaultProps = {

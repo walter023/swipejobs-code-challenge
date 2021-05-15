@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
 import React from "react";
-import { Dimensions, Image, StyleSheet } from "react-native";
+import { Dimensions, Image, StyleSheet, ViewPropTypes } from "react-native";
 import { Margin } from "@styles";
 
 const { width } = Dimensions.get("window");
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
 });
 
 HeaderLogo.propTypes = {
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 HeaderLogo.defaultProps = {

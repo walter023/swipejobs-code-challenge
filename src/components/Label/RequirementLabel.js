@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  ViewPropTypes,
+} from "react-native";
 
 import { Label } from "@constants";
 import { Color, FontSize, Margin } from "@styles";
@@ -19,6 +23,7 @@ export const RequirementLabel = ({ style, job }) => {
       iconLeft="construct-sharp"
       title={Label.REQUIREMENTS}
       iconVerticalPosition="center"
+      style={style}
     >
       {requirements.map((requirement, index) => (
         <Text key={index} style={styles.title}>
@@ -39,7 +44,7 @@ const styles = StyleSheet.create({
 
 RequirementLabel.propTypes = {
   job: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 RequirementLabel.defaultProps = {

@@ -1,20 +1,19 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, View, ViewPropTypes } from "react-native";
-import { Color, Margin } from "@styles";
+import { Margin } from "@styles";
 import { useSelector } from "react-redux";
 
 import { HeaderCard } from "../HeaderCard";
 import { HighlightLabel } from "../HighlightLabel";
 import {
-  ShiftLabel,
   LocationLabel,
   ReportToLabel,
   RequirementLabel,
+  ShiftLabel,
 } from "../Label";
 
 export const JobCard = ({ style }) => {
-  const { matches, loading, error } = useSelector((state) => state.jobs);
+  const { matches } = useSelector((state) => state.jobs);
 
   return matches.map((matchedJob, index) => {
     const onTop = index === matches.length - 1;

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, ViewPropTypes } from "react-native";
 
 import { Label } from "@constants";
 import { roundToOneDecimal } from "@helpers";
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 
 LocationLabel.propTypes = {
   job: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 LocationLabel.defaultProps = {

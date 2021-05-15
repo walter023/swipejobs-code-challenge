@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, ViewPropTypes } from "react-native";
 
 import { BorderRadius, FontSize, FontWeight, Margin } from "@styles";
 
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 });
 
 HeaderCard.propTypes = {
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
   job: PropTypes.object.isRequired,
 };
 

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, ViewPropTypes } from "react-native";
 
 import { Label } from "@constants";
 import { Color, FontSize, Margin } from "@styles";
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 
 ReportToLabel.propTypes = {
   job: PropTypes.object.isRequired,
-  style: PropTypes.object,
+  style: ViewPropTypes.style,
 };
 
 ReportToLabel.defaultProps = {
