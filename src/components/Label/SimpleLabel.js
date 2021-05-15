@@ -1,34 +1,34 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-
-import { monthDayHour } from "@helpers";
 import { Color, FontSize, FontWeight, Padding, Margin } from "@styles";
 
 export const SimpleLabel = ({
   style,
   iconLeft,
   iconRight,
-  renderItems,
   textStyle,
   title,
+  children,
 }) => {
-
   return (
-    <View style={[styles.container, style]}>
-      <Ionicons
-        name={iconLeft}
-        size={30}
-        color={Color.BLACK}
-        style={styles.icon}
-      />
-      <View style={styles.detailContainer}>
-        <Text style={styles.label}>{title}</Text>
-        {renderItems()}
+    <>
+      <View style={[styles.container, style]}>
+        <Ionicons
+          name={iconLeft}
+          size={30}
+          color={Color.BLACK}
+          style={styles.icon}
+        />
+        <View style={styles.detailContainer}>
+          <Text style={styles.label}>{title}</Text>
+          {children}
+        </View>
       </View>
-    </View>
+      <View style={styles.line} />
+    </>
   );
 };
 
@@ -38,26 +38,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: Padding.MEDIUM,
     paddingVertical: Padding.SMALL,
-  
   },
   icon: {
-    marginTop: Margin.SMALL,
+    alignSelf: "flex-end",
   },
   detailContainer: {
-    paddingHorizontal: Padding.XSMALL,
+    paddingHorizontal: Padding.SMALL,
     flex: 1,
   },
   label: {
     fontSize: FontSize.TITLE,
     fontWeight: FontWeight.BOLD,
   },
-  title: {
-    fontSize: FontSize.LARGE,
+  line: {
+    backgroundColor: Color.GREY,
+    marginHorizontal: Margin.MEDIUM,
+    height: StyleSheet.hairlineWidth,
   },
 });
 
 SimpleLabel.propTypes = {
-  renderItems: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
   style: PropTypes.object,
 };
 

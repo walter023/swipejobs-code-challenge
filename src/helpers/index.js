@@ -27,7 +27,7 @@ export const convertCentsToDollars = (cents) => {
  * @returns {string}
  */
 export function monthDayHour(startShift, endShift) {
-  const startDate = DateTime.fromISO(startShift).toFormat("LLL EEE ',' HH:mm");
+  const startDate = DateTime.fromISO(startShift).toFormat("LLL d ',' HH:mm");
   const endDate = DateTime.fromISO(endShift).toFormat("HH:mm");
   return `${startDate} - ${endDate} PDT`;
 }
