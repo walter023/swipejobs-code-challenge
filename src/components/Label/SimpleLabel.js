@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Octicons  } from "@expo/vector-icons";
 
 import { Color, FontSize, FontWeight, Padding, Margin } from "@styles";
 
@@ -9,7 +9,7 @@ export const SimpleLabel = ({
   style,
   iconLeft,
   iconRight,
-  textStyle,
+  iconVerticalPosition,
   title,
   children,
 }) => {
@@ -20,12 +20,20 @@ export const SimpleLabel = ({
           name={iconLeft}
           size={30}
           color={Color.BLACK}
-          style={styles.icon}
+          style={{ alignSelf: iconVerticalPosition }}
         />
         <View style={styles.detailContainer}>
           <Text style={styles.label}>{title}</Text>
           {children}
         </View>
+        {iconRight && (
+          <Ionicons
+            name={iconRight}
+            size={30}
+            color={Color.BLACK}
+            style={{ alignSelf: iconVerticalPosition }}
+          />
+        )}
       </View>
       <View style={styles.line} />
     </>
@@ -39,11 +47,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: Padding.MEDIUM,
     paddingVertical: Padding.SMALL,
   },
-  icon: {
-    alignSelf: "flex-end",
-  },
   detailContainer: {
-    paddingHorizontal: Padding.SMALL,
+    paddingHorizontal: Padding.XSMALL,
     flex: 1,
   },
   label: {

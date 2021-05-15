@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-import { Label, CardTypes } from "@constants";
+import { Label } from "@constants";
 import { monthDayHour } from "@helpers";
-import { Color, FontSize, FontWeight, Padding } from "@styles";
+import { Color, FontSize, Margin } from "@styles";
 
 import { SimpleLabel } from "./SimpleLabel";
 
@@ -16,8 +16,12 @@ export const ShiftLabel = ({ style, job }) => {
   const shiftToDisplay = monthDayHour(startDate, endDate);
 
   return (
-    <TouchableOpacity onPress={multipleShifts ? onPress : null}>
-      <SimpleLabel iconLeft="calendar" title={Label.SHIFT_DATES}>
+    <TouchableOpacity onPress={multipleShifts ? onPress : null} style={style}>
+      <SimpleLabel
+        iconLeft="calendar"
+        title={Label.SHIFT_DATES}
+        iconVerticalPosition="flex-end"
+      >
         <Text style={styles.title}>{shiftToDisplay}</Text>
       </SimpleLabel>
     </TouchableOpacity>
@@ -25,19 +29,11 @@ export const ShiftLabel = ({ style, job }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
-  detailContainer: {
-    paddingHorizontal: Padding.XSMALL,
-    flex: 1,
-  },
-  label: {
-    fontSize: FontSize.TITLE,
-    fontWeight: FontWeight.BOLD,
-  },
   title: {
-    fontSize: FontSize.LARGE,
+    fontSize: FontSize.TITLE,
     color: Color.BLACK,
-  }
+    marginTop: Margin.XSMALL,
+  },
 });
 
 ShiftLabel.propTypes = {

@@ -1,0 +1,43 @@
+import PropTypes from "prop-types";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+import { Label } from "@constants";
+import { Color, FontSize, Margin } from "@styles";
+
+import { SimpleLabel } from "./SimpleLabel";
+
+export const ReportToLabel = ({ style, job }) => {
+  const {
+    company: { reportTo },
+  } = job;
+
+  return (
+    <SimpleLabel
+      iconLeft="person-circle-outline"
+      title={Label.REPORT_TO}
+      iconVerticalPosition="flex-end"
+      style={style}
+    >
+      {reportTo.name && <Text style={styles.title}>{reportTo.name}</Text>}
+      {reportTo.phone && <Text style={styles.title}>{reportTo.phone}</Text>}
+    </SimpleLabel>
+  );
+};
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: FontSize.TITLE,
+    color: Color.BLACK,
+    marginTop: Margin.XSMALL,
+  },
+});
+
+ReportToLabel.propTypes = {
+  job: PropTypes.object.isRequired,
+  style: PropTypes.object,
+};
+
+ReportToLabel.defaultProps = {
+  style: {},
+};
