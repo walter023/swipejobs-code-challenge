@@ -5,6 +5,8 @@ export const Label = {
   SHIFT_DATES: "Shift Dates",
   REQUIREMENTS: "Requirements",
   REPORT_TO: "Report To",
+  BUTTON_ACCEPT: "I'll Take it",
+  BUTTON_REJECT: "No Thanks",
 };
 
 export const CardTypes = {

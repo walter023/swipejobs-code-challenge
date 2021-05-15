@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.WHITE,
     flexDirection: "row",
     paddingHorizontal: Padding.MEDIUM,
-    paddingVertical: Padding.SMALL,
+    paddingVertical: 15,
   },
   detailContainer: {
     paddingHorizontal: Padding.XSMALL,

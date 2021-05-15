@@ -1,8 +1,11 @@
 import React from "react";
 import { StyleSheet, View, ViewPropTypes } from "react-native";
-import { Margin } from "@styles";
 import { useSelector } from "react-redux";
 
+import { Margin } from "@styles";
+import { Label } from "@constants";
+
+import { Button } from "../Button";
 import { HeaderCard } from "../HeaderCard";
 import { HighlightLabel } from "../HighlightLabel";
 import {
@@ -26,18 +29,14 @@ export const JobCard = ({ style }) => {
           <LocationLabel job={matchedJob} />
           <RequirementLabel job={matchedJob} />
           <ReportToLabel job={matchedJob} />
+          <View style={styles.buttonContainer}>
+            <Button title={Label.BUTTON_REJECT}  />
+            <Button title={Label.BUTTON_ACCEPT} inverted style={styles.acceptButton} />
+          </View>
         </View>
       )
     );
   });
-};
-
-JobCard.propTypes = {
-  style: ViewPropTypes.style,
-};
-
-JobCard.defaultProps = {
-  style: {},
 };
 
 const styles = StyleSheet.create({
@@ -50,4 +49,21 @@ const styles = StyleSheet.create({
   HighlightLabel: {
     marginTop: Margin.SMALL,
   },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: Margin.LARGE,
+  },
+  acceptButton: {
+    marginLeft: Margin.XSMALL,
+  },
 });
+
+JobCard.propTypes = {
+  style: ViewPropTypes.style,
+};
+
+JobCard.defaultProps = {
+  style: {},
+};
