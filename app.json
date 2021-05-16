@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "SwipeJobsApp",
+    "name": "Swipe Jobs Code Challenge",
     "slug": "SwipeJobsApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -28,6 +28,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": " Code Challenge",
+    "githubUrl": "https://github.com/walter023/swipejobs-code-challenge"
   }
 }

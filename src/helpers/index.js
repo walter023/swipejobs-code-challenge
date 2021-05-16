@@ -22,7 +22,7 @@ export const convertCentsToDollars = (cents) => {
 };
 
 /**
- * Returns the Do MMMM YYYY
+ * Returns the MM D YYYY
  * @param {string} date
  * @returns {string}
  */

@@ -3,7 +3,6 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
   ViewPropTypes,
 } from "react-native";
@@ -14,7 +13,7 @@ import { Color, FontSize } from "@styles";
 import { SimpleLabel } from "./SimpleLabel";
 
 export const LocationLabel = ({ address, distance }) => (
-  <TouchableOpacity>
+
     <SimpleLabel
       iconLeft="location"
       iconRight="chevron-forward"
@@ -30,7 +29,6 @@ export const LocationLabel = ({ address, distance }) => (
         {distance} miles from your search location.
       </Text>
     </SimpleLabel>
-  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
