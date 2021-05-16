@@ -4,24 +4,20 @@ import { Image, StyleSheet, Text, View, ViewPropTypes } from "react-native";
 
 import { BorderRadius, FontSize, FontWeight, Margin } from "@styles";
 
-export const HeaderCard = ({ style, job }) => {
-  const { jobTitle, company } = job;
-
-  return (
-    <View style={style}>
-      <Image
-        source={{
-          uri: jobTitle.imageUrl,
-        }}
-        style={styles.logo}
-      />
-      <View style={styles.infoContainer}>
-        <Text style={styles.jobTitle}>{jobTitle.name}</Text>
-        <Text style={styles.company}>{company.name}</Text>
-      </View>
+export const HeaderCard = ({ style, heading, subHeading, imageUrl }) => (
+  <View style={style}>
+    <Image
+      source={{
+        uri: imageUrl,
+      }}
+      style={styles.logo}
+    />
+    <View style={styles.infoContainer}>
+      <Text style={styles.heading}>{heading}</Text>
+      <Text style={styles.subHeading}>{subHeading}</Text>
     </View>
-  );
-};
+  </View>
+);
 
 const styles = StyleSheet.create({
   logo: {
@@ -33,20 +29,22 @@ const styles = StyleSheet.create({
   infoContainer: {
     marginHorizontal: Margin.SMALL,
   },
-  jobTitle: {
+  heading: {
     fontSize: FontSize.LARGE,
     fontWeight: FontWeight.BOLD,
     marginBottom: Margin.XSMALL,
   },
-  company: {
+  subHeading: {
     fontSize: FontSize.TITLE,
     fontWeight: FontWeight.TITLE,
   },
 });
 
 HeaderCard.propTypes = {
+  heading: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
   style: ViewPropTypes.style,
-  job: PropTypes.object.isRequired,
+  subHeading: PropTypes.string.isRequired,
 };
 
 HeaderCard.defaultProps = {

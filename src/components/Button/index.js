@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { useDispatch } from "react-redux";
 import {
   Dimensions,
   StyleSheet,
@@ -13,24 +14,22 @@ import { BorderRadius, FontSize, Padding, Color } from "@styles";
 const { width } = Dimensions.get("window");
 const buttonWidth = width / 2 - (Padding.MEDIUM + Padding.XSMALL) * 2;
 
-export const Button = ({ style, onPress, title, inverted }) => {
-  return (
-    <TouchableOpacity
-      onPress={onPress}
-      activeOpacity={0.5}
-      style={[
-        styles.button,
-        styles.container,
-        style,
-        inverted && styles.containerInverted,
-      ]}
-    >
-      <Text style={[styles.buttonText, inverted && styles.buttonTextInverted]}>
-        {title}
-      </Text>
-    </TouchableOpacity>
-  );
-};
+export const Button = ({ style, title, inverted, onPress }) => (
+  <TouchableOpacity
+    onPress={onPress}
+    activeOpacity={0.5}
+    style={[
+      styles.button,
+      styles.container,
+      style,
+      inverted && styles.containerInverted,
+    ]}
+  >
+    <Text style={[styles.buttonText, inverted && styles.buttonTextInverted]}>
+      {title}
+    </Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
 Button.propTypes = {
   inverted: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  onPress: PropTypes.func,
   style: ViewPropTypes.style,
 };
 

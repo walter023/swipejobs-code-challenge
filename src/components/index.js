@@ -1,3 +1,3 @@
 export * from "./Logo";
-export * from "./Card";
+export * from "./JobCard";
 export * from "./Worker/DisplayName";
