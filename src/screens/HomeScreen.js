@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Text } from "react-native";
 import { useDispatch } from "react-redux";
 
 import { JobCard } from "@components";
