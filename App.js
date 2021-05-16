@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { NotifierWrapper } from "react-native-notifier";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import { StatusBar } from "expo-status-bar";
@@ -11,7 +11,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <AppNavigator />
+        <NotifierWrapper>
+          <AppNavigator />
+        </NotifierWrapper>
         <StatusBar barStyle="default" />
       </Provider>
     </NavigationContainer>

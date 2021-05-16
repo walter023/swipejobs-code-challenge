@@ -7,6 +7,9 @@ export const Label = {
   REPORT_TO: "Report To",
   BUTTON_ACCEPT: "I'll Take it",
   BUTTON_REJECT: "No Thanks",
+  OOPS: "Oops",
+  GREAT: "Great",
+  ACCEPT: "We see you on site :)",
 };
 
 export const CardTypes = {

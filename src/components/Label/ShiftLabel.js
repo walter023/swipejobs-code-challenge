@@ -8,8 +8,7 @@ import { Color, FontSize, Margin } from "@styles";
 
 import { SimpleLabel } from "./SimpleLabel";
 
-export const ShiftLabel = ({ style, job }) => {
-  const { shifts } = job;
+export const ShiftLabel = ({ style, shifts }) => {
   const { startDate, endDate } = shifts[0];
 
   const multipleShifts = shifts.lenght > 1;
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
 });
 
 ShiftLabel.propTypes = {
-  job: PropTypes.object.isRequired,
+  shifts: PropTypes.array.isRequired,
   style: ViewPropTypes.style,
 };
 

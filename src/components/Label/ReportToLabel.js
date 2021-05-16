@@ -7,23 +7,17 @@ import { Color, FontSize, Margin } from "@styles";
 
 import { SimpleLabel } from "./SimpleLabel";
 
-export const ReportToLabel = ({ style, job }) => {
-  const {
-    company: { reportTo },
-  } = job;
-
-  return (
-    <SimpleLabel
-      iconLeft="person-circle-outline"
-      title={Label.REPORT_TO}
-      iconVerticalPosition="flex-end"
-      style={style}
-    >
-      {reportTo.name && <Text style={styles.title}>{reportTo.name}</Text>}
-      {reportTo.phone && <Text style={styles.title}>{reportTo.phone}</Text>}
-    </SimpleLabel>
-  );
-};
+export const ReportToLabel = ({ style, reportTo }) => (
+  <SimpleLabel
+    iconLeft="person-circle-outline"
+    title={Label.REPORT_TO}
+    iconVerticalPosition="flex-end"
+    style={style}
+  >
+    {reportTo.name && <Text style={styles.title}>{reportTo.name}</Text>}
+    {reportTo.phone && <Text style={styles.title}>{reportTo.phone}</Text>}
+  </SimpleLabel>
+);
 
 const styles = StyleSheet.create({
   title: {
@@ -34,7 +28,7 @@ const styles = StyleSheet.create({
 });
 
 ReportToLabel.propTypes = {
-  job: PropTypes.object.isRequired,
+  reportTo: PropTypes.object.isRequired,
   style: ViewPropTypes.style,
 };
 

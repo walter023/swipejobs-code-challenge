@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, View, ViewPropTypes } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Margin } from "@styles";
 import { Label } from "@constants";
-import { acceptJob, filterJobs } from "@store";
+import { convertCentsToDollars, roundToOneDecimal } from "@helpers";
+import { acceptJob, filterJobs, getJobMatches } from "@store";
+import { Margin } from "@styles";
+import { showToast } from "@utils";
 
 import { Button } from "../Button";
 import { HeaderCard } from "../HeaderCard";
@@ -20,24 +22,44 @@ export const JobCard = ({ style }) => {
   const dispatch = useDispatch();
   const { matches, message, success } = useSelector((state) => state.jobs);
 
-  if (!success && message) {
-    alert(message);
+  useEffect(() => {
+    if (!success && message) {
+      showToast(Label.OOPS, message, "error", 3500);
+    }
+  }, [success]);
+
+  if (matches.length === 0) {
+    dispatch(getJobMatches());
   }
+  
+  const onPressAccept = (jobId) => {
+    dispatch(acceptJob(jobId));
+    showToast(Label.GREAT, Label.ACCEPT, "success", 3500);
+  };
 
   return matches.map((matchedJob, index) => {
     const {
       jobId,
       milesToTravel,
+      requirements,
+      shifts,
       wagePerHourInCents,
       jobTitle: { name: heading, imageUrl },
-      company: { name: subHeading },
+      company: {
+        name: subHeading,
+        address: { formattedAddress },
+        reportTo,
+      },
     } = matchedJob;
 
     const onTop = index === matches.length - 1;
-    
+
     if (!onTop) {
       return;
     }
+    const distance = roundToOneDecimal(milesToTravel);
+    const wagePerHourInDolllars = convertCentsToDollars(wagePerHourInCents);
+
     return (
       <View style={[styles.container, style]} key={jobId}>
         <HeaderCard
@@ -46,11 +68,14 @@ export const JobCard = ({ style }) => {
           imageUrl={imageUrl}
           style={styles.header}
         />
-        <HighlightLabel job={matchedJob} style={styles.HighlightLabel} />
-        <ShiftLabel job={matchedJob} />
-        <LocationLabel job={matchedJob} />
-        <RequirementLabel job={matchedJob} />
-        <ReportToLabel job={matchedJob} />
+        <HighlightLabel
+          highlights={[distance, wagePerHourInDolllars]}
+          style={styles.HighlightLabel}
+        />
+        <ShiftLabel shifts={shifts} />
+        <LocationLabel distance={distance} address={formattedAddress} />
+        {requirements && <RequirementLabel requirements={requirements} />}
+        <ReportToLabel reportTo={reportTo} />
         <View style={styles.buttonContainer}>
           <Button
             title={Label.BUTTON_REJECT}
@@ -58,7 +83,7 @@ export const JobCard = ({ style }) => {
             inverted
           />
           <Button
-            onPress={() => dispatch(acceptJob(jobId))}
+            onPress={() => onPressAccept(jobId)}
             title={Label.BUTTON_ACCEPT}
             style={styles.acceptButton}
           />
