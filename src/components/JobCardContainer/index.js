@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { StyleSheet, View, ViewPropTypes } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Label } from "@constants";
+import { Caption } from "@constants";
 import { convertCentsToDollars, roundToOneDecimal } from "@helpers";
 import { acceptJob, filterJobs, getJobMatches } from "@store";
 import { Margin } from "@styles";
@@ -24,17 +24,17 @@ export const JobCard = ({ style }) => {
 
   useEffect(() => {
     if (!success && message) {
-      showToast(Label.OOPS, message, "error", 3500);
+      showToast(Caption.OOPS, message, "error", 2500);
     }
-  }, [success]);
+  }, [success, message]);
 
   if (matches.length === 0) {
     dispatch(getJobMatches());
   }
-  
-  const onPressAccept = (jobId) => {
+
+  const onPressAcceptButton = (jobId) => {
     dispatch(acceptJob(jobId));
-    showToast(Label.GREAT, Label.ACCEPT, "success", 3500);
+    success && showToast(Caption.GREAT, Caption.ACCEPT, "success", 2500);
   };
 
   return matches.map((matchedJob, index) => {
@@ -63,8 +63,8 @@ export const JobCard = ({ style }) => {
     return (
       <View style={[styles.container, style]} key={jobId}>
         <HeaderCard
-          heading={heading}
-          subHeading={subHeading}
+          headline={heading}
+          subHeadline={subHeading}
           imageUrl={imageUrl}
           style={styles.header}
         />
@@ -78,13 +78,13 @@ export const JobCard = ({ style }) => {
         <ReportToLabel reportTo={reportTo} />
         <View style={styles.buttonContainer}>
           <Button
-            title={Label.BUTTON_REJECT}
-            onPress={() => dispatch(filterJobs({ jobId }))}
+            title={Caption.BUTTON_REJECT}
+            onPress={() => dispatch(filterJobs({ jobId, success: !success }))}
             inverted
           />
           <Button
-            onPress={() => onPressAccept(jobId)}
-            title={Label.BUTTON_ACCEPT}
+            onPress={() => onPressAcceptButton(jobId)}
+            title={Caption.BUTTON_ACCEPT}
             style={styles.acceptButton}
           />
         </View>

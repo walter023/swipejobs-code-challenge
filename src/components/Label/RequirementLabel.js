@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, ViewPropTypes } from "react-native";
 
-import { Label } from "@constants";
+import { Caption } from "@constants";
 import { Color, FontSize, Margin } from "@styles";
 
 import { SimpleLabel } from "./SimpleLabel";
@@ -10,7 +10,7 @@ import { SimpleLabel } from "./SimpleLabel";
 export const RequirementLabel = ({ style, requirements }) => (
   <SimpleLabel
     iconLeft="construct-sharp"
-    title={Label.REQUIREMENTS}
+    title={Caption.REQUIREMENTS}
     iconVerticalPosition="center"
     style={style}
   >

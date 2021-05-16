@@ -10,11 +10,11 @@ export const defaultOptions = {
       <DisplayName style={styles.user} />
     </View>
   ),
-  headerTitle: (props) => <HeaderLogo {...props} style={styles.logo} />,
+  headerTitle: (props) => <HeaderLogo style={styles.logo} />,
   headerTitleAlign: "left",
   headerTintColor: Color.BLACK,
+  headerBackTitleVisible: false,
 };
-
 
 const styles = StyleSheet.create({
   right: {

@@ -8,7 +8,7 @@ import {
   ViewPropTypes,
 } from "react-native";
 
-import { Label } from "@constants";
+import {  Caption } from "@constants";
 import { Color, FontSize } from "@styles";
 
 import { SimpleLabel } from "./SimpleLabel";
@@ -18,7 +18,7 @@ export const LocationLabel = ({ address, distance }) => (
     <SimpleLabel
       iconLeft="location"
       iconRight="chevron-forward"
-      title={Label.LOCATION}
+      title={Caption.LOCATION}
       iconVerticalPosition="center"
     >
       <View style={styles.addressContainer}>

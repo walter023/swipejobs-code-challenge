@@ -1,3 +1,5 @@
 export * from "./Logo";
-export * from "./JobCard";
+export * from "./JobCardContainer";
+export * from "./Label";
+export * from "./Shifts";
 export * from "./Worker/DisplayName";

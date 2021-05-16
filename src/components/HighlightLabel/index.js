@@ -2,18 +2,18 @@ import PropTypes from "prop-types";
 import React from "react";
 import { StyleSheet, Text, View, ViewPropTypes } from "react-native";
 
-import { Label } from "@constants";
+import { Caption } from "@constants";
 
 import { Color, FontSize, FontWeight, Padding, Margin } from "@styles";
 
 export const HighlightLabel = ({ style, highlights }) => (
   <View style={[styles.container, style]}>
     <View style={styles.leftContainer}>
-      <Text style={styles.label}>{Label.DISTANCE}</Text>
+      <Text style={styles.label}>{Caption.DISTANCE}</Text>
       <Text style={styles.title}>{highlights[0]} miles</Text>
     </View>
     <View style={styles.rightContainer}>
-      <Text style={styles.label}>{Label.RATE}</Text>
+      <Text style={styles.label}>{Caption.RATE}</Text>
       <Text style={styles.title}>{highlights[1]}</Text>
     </View>
   </View>

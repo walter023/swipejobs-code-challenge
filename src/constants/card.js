@@ -1,4 +1,4 @@
-export const Label = {
+export const Caption = {
   RATE: "Hourly Rate",
   DISTANCE: "Distance",
   LOCATION: "Location",
